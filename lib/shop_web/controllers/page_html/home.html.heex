@@ -14,10 +14,22 @@
     <option value="switch">Nintendo Switch</option>
   </select>
   <button type="submit">Save</button>
-</form> 
+</form>
 
 <p class="mt-8">
-  Current console: <strong><%= @console %></strong>
+  Current console: <strong>{@console}</strong>
 </p>
+
+<p class="mt-8">
+  Recently fetched posts from Strapi:
+</p>
+<ul>
+  <%= for post <- @posts do %>
+    <li>{post["title"]}</li>
+  <% end %>
+</ul>
+<div class="flex flex-col gap-2 *:font-mulish [&>*>a]:underline [&>*>a]:text-blue-600">
+    {raw(@conteudo_html)}
+  </div>
 
 <a href={~p"/products"}>View all products</a>

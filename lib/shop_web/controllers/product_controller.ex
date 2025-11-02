@@ -1,12 +1,11 @@
 defmodule ShopWeb.ProductController do
   use ShopWeb, :controller
+  alias Shop.StrapiClient
 
   def index(conn, _params) do
     # dbg(params)
+
     render(conn, :index)
   end
 
-  def show(conn, %{"id" => id}) do
-    render(conn, :show, id: id, name: "Leonardo")
-  end
 end
