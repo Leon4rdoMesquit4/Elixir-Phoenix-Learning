@@ -48,6 +48,9 @@ defmodule ShopWeb.Layouts do
             <a href="https://phoenixframework.org/" class="btn btn-ghost">Website</a>
           </li>
           <li>
+            <a href={~p"/cats"} class="btn btn-ghost">Gatinhos</a>
+          </li>
+          <li>
             <a href="https://github.com/phoenixframework/phoenix" class="btn btn-ghost">GitHub</a>
           </li>
           <li>

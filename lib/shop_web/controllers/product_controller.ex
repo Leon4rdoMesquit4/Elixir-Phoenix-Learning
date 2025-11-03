@@ -5,7 +5,12 @@ defmodule ShopWeb.ProductController do
   def index(conn, _params) do
     # dbg(params)
 
-    render(conn, :index)
+    conn
+    |> SEO.assign(%{
+      title: "Products",
+      description: "Browse our product catalog"
+    })
+    |> render(:index)
   end
 
 end

@@ -7,12 +7,15 @@ defmodule ShopWeb.PageController do
     {:ok, response} = StrapiClient.get("/posts")
     decoded = Jason.decode!(response.body)
     posts = decoded["data"]
-    post = Enum.at(posts, -1)
 
-    IO.inspect(post["conteudo"], label: "CONTEUDO")
-    conteudo_html = to_html(post["conteudo"])
-    IO.inspect(conteudo_html, label: "CONTEUDO HTML")
+    posts =
+      Enum.map(posts, fn post ->
+        conteudo = post["conteudo"] || []
+        html_conteudo = to_html(conteudo)
+        Map.put(post, "html_conteudo", html_conteudo)
+      end)
 
-    render(conn, :home, posts: posts, conteudo_html: conteudo_html)
+    conn
+    |> render("home.html", posts: posts, page_title: "Cassete")
   end
 end
