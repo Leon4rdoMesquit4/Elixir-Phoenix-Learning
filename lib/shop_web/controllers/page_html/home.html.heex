@@ -26,10 +26,13 @@
 <ul>
   <%= for post <- @posts do %>
     <li>{post["title"]}</li>
+    <div class="flex flex-col gap-2 *:font-mulish [&>*>a]:underline [&>*>a]:text-blue-600">
+    {raw(post["html_conteudo"])}
+  </div>
   <% end %>
 </ul>
-<div class="flex flex-col gap-2 *:font-mulish [&>*>a]:underline [&>*>a]:text-blue-600">
-    {raw(@conteudo_html)}
-  </div>
+
+
+
 
 <a href={~p"/products"}>View all products</a>

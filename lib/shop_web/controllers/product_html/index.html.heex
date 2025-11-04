@@ -1,5 +1,21 @@
-<h1>Amooooo</h1>
-<p :if={@promo}>Pessoas lindas</p>
-<p class="mt-8">
-  Current console: <strong><%= @console %></strong>
-</p>
+<div class="bg-base-200">
+  <div class="p-12">
+    <h1 class="text-4xl font-bold">Our latest products</h1>
+    <p class="text-lg mt-2">Browse our catalog of the latest and greatest products.</p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-12">
+    <%= for product <- @products do %>
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title"><%= product.name %></h2>
+          <p>Console: <%= product.console %></p>
+          <div class="card-actions justify-end">
+            <.link href={~p"/products/#{product.slug}"} class="btn btn-primary">
+              View Product
+            </.link>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

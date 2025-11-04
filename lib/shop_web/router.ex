@@ -26,8 +26,9 @@ defmodule ShopWeb.Router do
 
     get "/", PageController, :home
     get "/products", ProductController, :index
-    get "/products/:id", ProductController, :show
+    get "/products/:slug", ProductController, :show
     get "/blog", BlogController, :index
+    get "/cats", CatController, :index
     
     # resources "/users", UserController do
     #   resources "/posts", PostController
