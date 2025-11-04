@@ -16,6 +16,6 @@ defmodule ShopWeb.PageController do
       end)
 
     conn
-    |> render("home.html", posts: posts, page_title: "Cassete")
+    |> render("home.html", posts: posts)
   end
 end
